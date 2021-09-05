@@ -123,7 +123,7 @@ public class BatchConfiguration {
         };
     }
 
-    public String testJob() {
+    public String testJob(final String jobName) {
         System.out.println("Running... testJob... ");
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("time", System.currentTimeMillis())
@@ -136,7 +136,7 @@ public class BatchConfiguration {
         steps.add("step2");
         steps.add("step3");
 
-        JobBuilder jb = new JobBuilder("job1");
+        JobBuilder jb = new JobBuilder(jobName);
         SimpleJobBuilder sjb = jb.start(step1);
 
         /*for(String s : steps) {
